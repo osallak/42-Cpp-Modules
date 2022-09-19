@@ -1,0 +1,8 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/uss4ma/CppModules/day00/ex01'
+c++ -Wall -Wextra -Werror -std=c++98 -c main.cpp -o main.o
+c++ -Wall -Wextra -Werror -std=c++98 -c PhoneBook.cpp -o PhoneBook.o
+c++ -Wall -Wextra -Werror -std=c++98 -c Contact.cpp -o Contact.o
+c++ -Wall -Wextra -Werror -std=c++98 main.o PhoneBook.o Contact.o -o phonebook
+make: Leaving directory '/home/uss4ma/CppModules/day00/ex01'
+ 
