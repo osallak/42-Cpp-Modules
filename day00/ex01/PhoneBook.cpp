@@ -6,7 +6,7 @@ static bool OnlyDigits(std::string PhoneNumber)
 	bool flag = false;
 
 	for (long unsigned int i = 0; i < PhoneNumber.length(); i++){
-		if (std::isdigit(PhoneNumber[i] == 0))
+		if (std::isdigit(PhoneNumber[i]) == 0)
 			return (false);
 		flag = true;
 	}
@@ -25,18 +25,31 @@ int PhoneBook::Add(void)
 	std::string NickName;
 	std::string PhoneNumber;
 	std::string DarkestSecret;
+
 	std::cout << "Enter First Name: ";
 	std::getline(std::cin,FirstName);
 	if (std::cin.good() == 0)
 		return -1;
+	if (FirstName.length() == 0){
+		_error(false);
+		return (0);
+	}
 	std::cout << "Enter Last Name: ";
 	std::getline(std::cin,LastName);
 	if (std::cin.good() == 0)
 		return -1;
+	if (LastName.length() == 0){
+		_error(false);
+		return (0);
+	}
 	std::cout << "Enter NickName: ";
 	std::getline(std::cin, NickName);
 	if (std::cin.good() == 0)
 		return -1;
+	if (NickName.length() == 0){
+		_error(false);
+		return (0);
+	}
 	std::cout <<"Enter Phone Nmber: ";
 	std::getline(std::cin, PhoneNumber);
 	if (std::cin.good() == 0)
@@ -49,6 +62,10 @@ int PhoneBook::Add(void)
 	std::getline(std::cin, DarkestSecret);
 	if (std::cin.good() == 0)
 		return -1;
+	if (DarkestSecret.length() == 0){
+		_error(false);
+		return (0);
+	}
 	if (Index > 7)
 		Index = 0;
 	_Contacts[Index++].SetContactInfos(FirstName, LastName, NickName, PhoneNumber, DarkestSecret);
