@@ -21,7 +21,7 @@ Point::~Point(void)
 Point::Point(const Point& other)
 	:x(other.getX()), y(other.getY())
 {
-
+	//constructed using initializer list
 }
 
 
