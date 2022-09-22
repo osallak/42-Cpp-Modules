@@ -2,7 +2,6 @@
 #include <fstream>
 #define MAXSIZE 1024
 
-//ex: change all spaces to commas
 std::string findAndReplace(std::string line, std::string needle, std::string newSubstr)
 {
 	std::string newStr = "";
@@ -13,14 +12,14 @@ std::string findAndReplace(std::string line, std::string needle, std::string new
 
 	while (true)
 	{
-		if (flag == false)
+		if (flag == false){
 			index = line.find(needle, index + 1);
-		else{
+		} else {
 			index = line.find(needle, index);
 			flag = false;
-		}
-		if (index == std::string::npos)
+		} if (index == std::string::npos){
 			index = line.length();
+		}
 		newStr += line.substr(start, index - start);
 		if (index == line.length())
 			break ;
@@ -31,7 +30,7 @@ std::string findAndReplace(std::string line, std::string needle, std::string new
 	return newStr;
 }
 
-void openFile(char *fileName, std::string needle, std::string newSubstr)
+void openFile(char *fileName, std::string &needle, std::string &newSubstr)
 {
 	char buff[MAXSIZE + 1];
 	char *newlineChar;
@@ -61,12 +60,13 @@ void openFile(char *fileName, std::string needle, std::string newSubstr)
 int main(int ac, char **av)
 {
 	if (ac != 4){
-		std::cerr << "USAGE : [PROGRAM NAME] [FILENAME] [TO REPLACE] [NEW SUBSTRING]" << std::endl;
+		std::cerr << "USAGE : [PROGRAM NAME] [FILENAME] [STRING TO REPLACE] [NEW SUBSTRING]" << std::endl;
 		return 0;
 	}
 	std::string fileName = av[1];
 	std::string toReplace = av[2];
 	std::string newSubstr = av[3];
+
 	if (fileName.empty() || toReplace.empty() || newSubstr.empty()){
 		std::cerr << "Error: Arguments cannot be empty" << std::endl;
 		return 0;
