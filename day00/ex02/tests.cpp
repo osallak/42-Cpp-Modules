@@ -8,9 +8,11 @@
 // ************************************************************************** //
 
 #include <vector>
+#include <iostream>
 #include <algorithm>
 #include <functional>
 #include "Account.hpp"
+
 
 
 int		main( void ) {
@@ -56,6 +58,8 @@ int		main( void ) {
 
 		(*(it.first)).makeWithdrawal( *(it.second) );
 	}
+
+
 
 	Account::displayAccountsInfos();
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
