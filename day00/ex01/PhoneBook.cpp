@@ -1,5 +1,16 @@
-#include "PhoneBook.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/23 16:37:04 by osallak           #+#    #+#             */
+/*   Updated: 2022/09/23 16:37:07 by osallak          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "PhoneBook.hpp"
 
 static bool OnlyDigits(std::string PhoneNumber)
 {
@@ -92,6 +103,7 @@ int  PhoneBook::Search(void)
 		DisplayContactInfo(Index, false);
 	return 0;
 }
+
 PhoneBook::PhoneBook()
 {
 	this->ContactsNumber = 0;
@@ -104,6 +116,7 @@ static void DisplaySpaces(int length)
 	for (int i = 0; i < length; i++)
 		std::cout << " ";
 }
+
 void PhoneBook::DisplayContactInfo(int index, bool flag)
 {
 	if (flag == false){
