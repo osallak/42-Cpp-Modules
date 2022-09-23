@@ -1,19 +1,18 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Account.cpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 20:22:44 by osallak           #+#    #+#             */
-/*   Updated: 2022/09/22 20:29:55 by osallak          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// ************************************************************************** //
+//                                                                            //
+//                Account.cpp for GlobalBanksters United                        //
+//                Created on  : Thu Nov 20 23:45:02 1989                      //
+//                Last update : Fri Sep 23 09:23:52 2022                      //
+//                Made by : Brad "Buddy" McLane <bm@gbu.com>                  //
+//                                                                            //
+// ************************************************************************** //
+
 
 #include "Account.hpp"
 #include <iostream>
 #include <iomanip>
-
+#include <chrono>
+# define MAXSIZE 1024
 
 //defining static variables
 	
@@ -72,10 +71,14 @@ void	Account::displayAccountsInfos( void )
 
 void	Account::_displayTimestamp( void )
 {
-		time_t	now;
+	char time_buf[MAXSIZE];
+	struct tm ts;
+	time_t	unixTime = time(NULL);
 
-	now = time(NULL);
-	std::cout << std::put_time(localtime(&now), "[%y%m%d_%OH%OM%OS] ");
+	ts = *localtime(&unixTime);
+	strftime(time_buf, MAXSIZE, "[%Y%m%d_%H%M%S]", &ts);
+
+    std::cout << time_buf;
 }
 
 //other mumber functions
