@@ -6,7 +6,7 @@
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:37:04 by osallak           #+#    #+#             */
-/*   Updated: 2022/09/23 16:37:07 by osallak          ###   ########.fr       */
+/*   Updated: 2022/09/23 17:41:33 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ int  PhoneBook::Search(void)
 	}
 	std::cout << "Enter Contact Index" << std::endl;
 	std::cin >> Index; std::cin.ignore();
+	
 	if (std::cin.eof() || !std::cin.good())
 		return -1;
 	if (Index >= ContactsNumber || Index > 7 || Index < 0)

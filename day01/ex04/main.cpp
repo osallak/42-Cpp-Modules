@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/24 16:45:17 by osallak           #+#    #+#             */
+/*   Updated: 2022/09/24 16:45:19 by osallak          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <fstream>
 #define MAXSIZE 1024
@@ -26,7 +38,6 @@ std::string findAndReplace(std::string line, std::string needle, std::string new
 		newStr += newSubstr;
 		start = index + needle.length();
 	}
-	(void) flag;
 	return newStr;
 }
 

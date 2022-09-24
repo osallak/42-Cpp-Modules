@@ -8,6 +8,11 @@ Fixed::Fixed(void)
 	std::cout << "Default Constructor called" << std::endl;
 }
 
+Fixed::~Fixed(void)
+{
+	std::cout << "Fixed: Default destructor called" << std::endl;
+}
+
 Fixed::Fixed(const Fixed& other)
 	: fixedPointValue(other.getRawBits())
 {
