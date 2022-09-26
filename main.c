@@ -1,21 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-
-char **fun(void)
-{
-    char **s = malloc(sizeof(char *));
-    printf ("%p\n", *s);
-    return s;
-}
+#include <fcntl.h>
+#include <unistd.h>
 
 int
 main(ac, av)
         int ac;
         char **av;
 {
-    char *s;
-
-    s = *fun();
-    printf ("%p\n", s);
+    char *s = "test.cpp";
+    unlink(s);
 }

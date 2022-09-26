@@ -9,5 +9,6 @@ int main(void)
 	c = b;
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
+	c.setRawBits(1024);
 	std::cout << c.getRawBits() << std::endl;
 }

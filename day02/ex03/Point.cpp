@@ -4,18 +4,18 @@
 Point::Point(void)
 	:x(0), y(0)
 {
-	std::cout << "Point default constructror called" << std::endl;	
+	std::cout << "Point: default constructror called" << std::endl;	
 }
 
 Point::Point(const float x, const float y)
 	:x(x), y(y)
 {
-	std::cout << "Point float constructror called" << std::endl;	
+	std::cout << "Point: float constructror called" << std::endl;	
 }
 
 Point::~Point(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Point: Destructor called" << std::endl;
 }
 
 Point::Point(const Point& other)

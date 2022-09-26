@@ -10,7 +10,6 @@ class Fixed{
 		Fixed();
 		Fixed(const Fixed& other);
 		~Fixed();
-		//A copy assignment operator overload
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 		const Fixed& operator= (const Fixed& other);
