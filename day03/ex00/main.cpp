@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/27 17:45:55 by osallak           #+#    #+#             */
+/*   Updated: 2022/09/27 17:46:31 by osallak          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
 
 int main(void)
 {
-	ClapTrap astro = ClapTrap("astro");
+	ClapTrap astro("astro");
 	ClapTrap unkown = ClapTrap();
 	
 

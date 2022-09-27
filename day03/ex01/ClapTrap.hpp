@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/27 21:00:13 by osallak           #+#    #+#             */
+/*   Updated: 2022/09/27 21:00:14 by osallak          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 #include <iostream>
 
@@ -12,9 +24,14 @@ class ClapTrap{
 	public:
 		~ClapTrap(void);
 		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap& other);
 		ClapTrap(void);
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-
+		const ClapTrap& operator= (const ClapTrap& other);
+		const std::string& getName(void) const;
+		int getHitPoints(void) const;
+		int getEnergyPoints(void) const;
+		int getAttackDamage(void) const;
 };

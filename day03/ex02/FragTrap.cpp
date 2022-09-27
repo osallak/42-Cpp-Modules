@@ -31,7 +31,7 @@ FragTrap::FragTrap(const FragTrap& other)
 }
  FragTrap::~FragTrap(void)
 {
-	std::cout << "FragTrap " << name << " Destructed" << std::endl;
+	std::cout << "FragTrap: " << name << " Destructed" << std::endl;
 }
 
 void FragTrap::attack(const std::string& target)
@@ -41,5 +41,14 @@ void FragTrap::attack(const std::string& target)
 
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << name << " High Fives Guys" << std::endl;
+	std::cout << name << ": High Fives Guys" << std::endl;
+}
+
+const FragTrap& FragTrap::operator= (const FragTrap& other)
+{
+	hitPoints = other.getHitPoints();
+	name = other.getName();
+	energyPoints = other.getEnergyPoints();
+	attackDamage = other.getAttackDamage();
+	return (other);
 }

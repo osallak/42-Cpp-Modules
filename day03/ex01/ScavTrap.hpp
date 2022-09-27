@@ -10,4 +10,5 @@ class ScavTrap : public ClapTrap {
 		ScavTrap(const ScavTrap& other);
 		~ScavTrap(void);
 		void guardGate(void) const;
+		const ScavTrap& operator= (const ScavTrap& other);
 }; 

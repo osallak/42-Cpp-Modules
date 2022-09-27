@@ -1,5 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/27 17:45:39 by osallak           #+#    #+#             */
+/*   Updated: 2022/09/27 18:59:28 by osallak          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
+//constructors / Destructors 
 
 ClapTrap::ClapTrap(void)
 	:name("unkown"), hitPoints(10), energyPoints(10), attackDamage(0)
@@ -17,6 +30,14 @@ ClapTrap::~ClapTrap(void)
 {
 	std::cout << "ClapTrap " << name << " destroyed" << std::endl;
 }
+
+ClapTrap::ClapTrap(const ClapTrap& other)
+	: name(other.getName()), hitPoints(other.getHitPoints()), energyPoints(other.getEnergyPoints()), attackDamage(other.getAttackDamage())
+{
+	//copy constructor
+}
+
+//public member functions
 
 void ClapTrap::attack(const std::string& target)
 {
@@ -46,4 +67,37 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 	hitPoints += amount;
 	std::cout << "ClapTrap " << name << " get repared by " << amount << " hit points!" << std::endl; 
+}
+
+// getters
+
+const std::string& ClapTrap::getName(void) const
+{
+	return (name);
+}
+
+int ClapTrap::getHitPoints(void) const
+{
+	return (hitPoints);
+}
+
+int ClapTrap::getAttackDamage(void) const
+{
+	return (attackDamage);
+}
+
+int ClapTrap::getEnergyPoints(void) const
+{
+	return (energyPoints);
+}
+
+//setters
+
+const ClapTrap& ClapTrap::operator = (const ClapTrap& other)
+{
+	name = other.getName();
+	hitPoints = other.getHitPoints();
+	energyPoints = other.getEnergyPoints();
+	attackDamage = other.getAttackDamage();
+	return (other);
 }

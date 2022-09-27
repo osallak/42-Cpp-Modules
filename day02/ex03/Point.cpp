@@ -25,12 +25,16 @@ Point::Point(const Point& other)
 }
 
 
+//Copy assignment operator
+
 Point& Point::operator= (const Point& other)
 {
 	(Fixed) this->x = (Fixed) other.getX();
 	(Fixed) this->y = (Fixed) other.getY();
 	return *this;
 }
+
+//Getters && setters
 
 const Fixed& Point::getX(void) const
 {

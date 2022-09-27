@@ -17,7 +17,7 @@
 
 int		main( void ) {
 
-	typedef std::vector<Account::t>							  accounts_t;
+	 std::vector<Account::t>					typedef		  accounts_t;
 	typedef std::vector<int>								  ints_t;
 	typedef std::pair<accounts_t::iterator, ints_t::iterator> acc_int_t;
 
