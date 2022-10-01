@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/29 17:43:16 by osallak           #+#    #+#             */
+/*   Updated: 2022/09/29 17:43:17 by osallak          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
 
@@ -43,4 +55,13 @@ void ScavTrap::attack(const std::string& target)
 void ScavTrap::guardGate(void) const
 {
 	std::cout << "ScavTrap " << name << " is now in Gate keeper mode" << std::endl;
+}
+
+const ScavTrap& ScavTrap::operator= (const ScavTrap& other)
+{
+	this->name = other.getName();
+	this->attackDamage = other.getAttackDamage();
+	this->energyPoints = other.getEnergyPoints();
+	this->hitPoints = other.getHitPoints();
+	return (other);
 }

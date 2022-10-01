@@ -1,1 +1,4 @@
 *.o
+ClassGenerator.sh
+main.c
+main.cpp
