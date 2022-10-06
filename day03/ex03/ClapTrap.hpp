@@ -6,7 +6,7 @@
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 21:00:20 by osallak           #+#    #+#             */
-/*   Updated: 2022/09/29 17:42:02 by osallak          ###   ########.fr       */
+/*   Updated: 2022/10/04 15:56:14 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ClapTrap{
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 		const ClapTrap& operator= (const ClapTrap& other);
-		const std::string& getName(void) const;
+		virtual const std::string& getName(void) const;
 		int getHitPoints(void) const;
 		int getEnergyPoints(void) const;
 		int getAttackDamage(void) const;

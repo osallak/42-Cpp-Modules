@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongMain.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 17:42:47 by osallak           #+#    #+#             */
-/*   Updated: 2022/10/03 17:59:23 by osallak          ###   ########.fr       */
+/*   Created: 2022/10/06 23:48:44 by osallak           #+#    #+#             */
+/*   Updated: 2022/10/06 23:48:47 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "WrongDog.hpp"
+#include "WrongCat.hpp"
 
-#include <iostream>
-#include "ClapTrap.hpp"
 
-class FragTrap : virtual public ClapTrap {
-	public:
-		FragTrap(void);
-		FragTrap(const std::string& name);
-		FragTrap(const FragTrap& other);
-		~FragTrap(void);
-		void attack(const std::string& target);
-		void highFivesGuys(void);
-		const FragTrap& operator= (const FragTrap& other);
-};
+
+int main( void )
+{
+	const WrongAnimal* meta = new WrongAnimal();
+	const WrongAnimal* j = new WrongDog();
+	const WrongAnimal* i = new WrongCat();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); 
+	j->makeSound();
+	meta->makeSound();
+	delete meta;
+	delete j;
+	delete i;
+}

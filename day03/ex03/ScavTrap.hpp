@@ -6,7 +6,7 @@
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:43:46 by osallak           #+#    #+#             */
-/*   Updated: 2022/09/29 17:43:47 by osallak          ###   ########.fr       */
+/*   Updated: 2022/10/03 17:59:35 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 	public:
 		ScavTrap(void);
 		ScavTrap(const std::string& name);

@@ -2,9 +2,9 @@ NAME = claptrap
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp 
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamonTrap.cpp
 
-INC = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+INC = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamonTrap.hpp
 
 OBJS = $(SRC:.cpp=.o)
 
