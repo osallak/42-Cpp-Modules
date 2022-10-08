@@ -20,6 +20,7 @@ WrongAnimal::~WrongAnimal(void)
 
 const WrongAnimal& WrongAnimal::operator= (const WrongAnimal& other)
 {
+	std::cout << "WrongAnimal: assignement operator overloaded" << std::endl;
 	this->type = other.getType();
 	return *this;
 }
@@ -36,5 +37,5 @@ void WrongAnimal::setType(std::string type)
 
 void WrongAnimal::makeSound(void) const
 {
-	std::cout << "WrongAnimals sound" << std::endl; 
+	std::cout << "WrongAnimal sound" << std::endl; 
 }

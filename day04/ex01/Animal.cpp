@@ -20,6 +20,7 @@ Animal::~Animal(void)
 
 const Animal& Animal::operator= (const Animal& other)
 {
+	std::cout << "Animal: assignement operator overloaded " << std::endl;
 	this->type = other.getType();
 	return *this;
 }
@@ -29,12 +30,12 @@ const std::string Animal::getType(void) const
 	return this->type;
 }
 
-void Animal::setType(std::string type)
+void Animal::setType(std::string __type)
 {
-	this->type = type;
+	this->type = __type;
 }
 
 void Animal::makeSound(void) const
 {
-	std::cout << "Animals Voice" << std::endl; 
+	//no sound
 }

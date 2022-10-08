@@ -16,7 +16,7 @@ Cat::Cat( const Cat& other)
 
 Cat::~Cat( void )
 {
-    std::cout << "Default Destructor Called " << std::endl;
+    std::cout << "Cat: Default Destructor Called " << std::endl;
 }
 
 const Cat& Cat::operator= ( const Cat& other)
@@ -28,5 +28,5 @@ const Cat& Cat::operator= ( const Cat& other)
 
 void Cat::makeSound( void ) const
 {
-    std::cout << "Cat's voice" << std::endl; 
+    std::cout << "MEOWWWWWWW......" << std::endl; 
 }

@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongMain.cpp                                      :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 23:48:44 by osallak           #+#    #+#             */
-/*   Updated: 2022/10/06 23:48:47 by osallak          ###   ########.fr       */
+/*   Created: 2022/10/06 21:31:32 by osallak           #+#    #+#             */
+/*   Updated: 2022/10/08 16:00:07 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongDog.hpp"
-#include "WrongCat.hpp"
+#pragma once
+#include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
+class Dog : public Animal{
 
-
-int main( void )
-{
-	const WrongAnimal* meta = new WrongAnimal();
-	const WrongAnimal* j = new WrongDog();
-	const WrongAnimal* i = new WrongCat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); 
-	j->makeSound();
-	meta->makeSound();
-	delete meta;
-	delete j;
-	delete i;
-}
+    private:
+            Brain* dogBrain;
+    public:
+           Dog( void );
+           ~Dog( void );
+           Dog ( const Dog& other);
+           const Dog& operator= ( const Dog& other);
+            void makeSound( void ) const;
+            const Brain* getBrain( void ) const;
+};

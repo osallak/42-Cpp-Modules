@@ -10,5 +10,4 @@ class TestClass{
 		~TestClass( void );
 		TestClassconst TestClass& operator= ( const TestClass& other );
 		(const TestClass& other);
-		
 };
