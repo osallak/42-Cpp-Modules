@@ -6,7 +6,7 @@
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:45:24 by osallak           #+#    #+#             */
-/*   Updated: 2022/09/24 16:45:25 by osallak          ###   ########.fr       */
+/*   Updated: 2022/10/11 13:39:02 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ void Harl::complain(std::string level)
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int index = _find(levels, level);
 	(this->*fpointers[index])();
+	// Harl::debug();
 }

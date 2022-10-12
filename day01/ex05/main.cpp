@@ -6,7 +6,7 @@
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:45:33 by osallak           #+#    #+#             */
-/*   Updated: 2022/09/24 16:45:34 by osallak          ###   ########.fr       */
+/*   Updated: 2022/10/11 13:43:37 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int main(void)
 
 	std::cout << "-----------error--------------" << std::endl;
 	_harl.complain("ERROR");
+
+	_harl.complain("sfs");
 
 
 
