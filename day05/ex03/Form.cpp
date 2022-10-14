@@ -6,12 +6,11 @@
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 00:22:08 by osallak           #+#    #+#             */
-/*   Updated: 2022/10/12 18:59:15 by osallak          ###   ########.fr       */
+/*   Updated: 2022/10/14 01:51:02 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-
 
 Form::Form( std::string name, uint32_t _gradeToSign,  uint32_t _gradeToExecute )
     : _name( name ), _gradeToSign( _gradeToSign ), _gradeToExecute( _gradeToExecute ), _formStatus( false )
@@ -75,15 +74,39 @@ const char* Form::GradeTooLowException::what( void ) const throw()
     return "GradeTooLow"; 
 }
 
+const char* Form::UnsigendFormException::what( void ) const throw()
+{
+    return "UnsigendForm"; 
+}
+
 void Form::beSigned( const Bureaucrat& _bureaucrat )
 {
     if ((uint32_t) _bureaucrat.getGrade() > _gradeToSign){
         throw (GradeTooLowException());
     }
+    std::cout << "Form: " << _name << " Signed" << std::endl;
     _formStatus = true;
+}
+
+void Form::execute(Bureaucrat const & executor) const
+{
+    if (executor.getGrade() > (int) _gradeToExecute){
+        throw (GradeTooLowException());
+    } else if (_formStatus == false){
+        throw (UnsigendFormException());
+    }
+    specialFeature();
+    std::cout << "Form: " << _name << " executed" << std::endl;
 }
 
 bool Form::getFormStatus( void ) const
 {
     return ( _formStatus );
+}
+
+void Form::setName( std::string _name )
+{
+    std::string *_namePtr = (std::string *) &this->_name;
+
+    *_namePtr = _name;
 }
