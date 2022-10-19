@@ -9,7 +9,7 @@ class Contact{
 		std::string LastName;
 		std::string NickName;
 		std::string PhoneNumber;
-		std::st.ring DarkestSecret;
+		std::string DarkestSecret;
 		void SetContactInfos(std::string FirstName, std::string LastName, std::string NickName, std::string PhoneNumber, std::string DarkestSecret);
 	
 };
