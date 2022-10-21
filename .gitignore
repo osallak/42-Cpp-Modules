@@ -4,3 +4,5 @@ main.c
 main.cpp
 a.out
 .vscode
+TestClass.cpp
+test.cpp
