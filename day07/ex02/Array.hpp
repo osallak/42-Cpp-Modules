@@ -6,7 +6,7 @@
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 01:16:32 by osallak           #+#    #+#             */
-/*   Updated: 2022/10/21 04:00:32 by osallak          ###   ########.fr       */
+/*   Updated: 2022/10/21 23:36:56 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ template<typename T>class Array{
             T* tmp;
         
             __size = other.getSize();
-            if (__arr != NULL)
-                delete[] __arr;
             __arr = new T[__size];
-            tmp = other.getArray();
+            tmp = (T *)other.getArray();
             for (size_t i = 0; i < __size; i++){
                 __arr[i] = tmp[i];
             }
