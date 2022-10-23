@@ -1,7 +1,6 @@
 *.o
 ClassGenerator.sh
 main.c
-main.cpp
 a.out
 .vscode
 TestClass.cpp
