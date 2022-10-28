@@ -65,6 +65,8 @@
         "vector": "cpp",
         "bit": "cpp",
         "__functional_03": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "deque": "cpp",
+        "__cxx_version": "cpp"
     }
 }
