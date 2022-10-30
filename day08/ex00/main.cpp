@@ -6,7 +6,7 @@
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:46:32 by osallak           #+#    #+#             */
-/*   Updated: 2022/10/28 21:57:30 by osallak          ###   ########.fr       */
+/*   Updated: 2022/10/30 21:32:07 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,19 @@ int main( void )
         __vec.push_back(i + 1);
     }
 
-    int index = -1;
+    std::vector<int>::iterator it;
     try{
-        index = easyfind(__vec, 900);
+        it = easyfind(__vec, 900);
 
-        std::cout << "Element Found at index: " << index << '\n';
+        std::cout << "Element Found\n";
     }
     catch (std::exception){
         std::cout << "Target Not Found\n";
     }
     
     try{
-        index = easyfind(__vec, -1);
-
-        std::cout << "Element Found at index: " << index << '\n';
+        it = easyfind(__vec, -1);
+        std::cout << "Element Found\n";
     }
     catch (std::exception){
         std::cout << "Target Not Found\n";
@@ -41,9 +40,10 @@ int main( void )
 
     std::string __string = "Hello This message is just for testing\n";
 
+    std::string::iterator its;
     try{
-        index = easyfind(__string, 'e');
-        std::cout << "Element Found at index: " << index << '\n';
+        its = easyfind(__string, 'e');
+        std::cout << "Element Found\n";
     }
     catch (std::exception){
         std::cout << "Target Not Found\n";

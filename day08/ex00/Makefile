@@ -4,7 +4,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 SRC = main.cpp 
 
-INC = Span.hpp
+INC = easyfind.hpp
 
 OBJS = $(SRC:.cpp=.o)
 
