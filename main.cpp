@@ -9,21 +9,15 @@
 
 using namespace std;
 
+class A{
+    public:
+    int x;
+    A(int x = 2000): x(x){} 
+};
 int main()
 {
-    deque<int> __d;
 
-    for (int i = 0; i < 100; i++){
-        __d.push_back(i);
-    }
-    deque<int>::iterator begin;
-    deque<int>::iterator end;
-
-    begin = __d.begin();
-    end = __d.end();
-    for (; begin != end; begin++){
-        *begin = 2001;
-        std::cout << *begin << " ";
-    }
+    A a(32);
+    cout << a.x;
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:13:15 by osallak           #+#    #+#             */
-/*   Updated: 2022/10/28 21:40:59 by osallak          ###   ########.fr       */
+/*   Updated: 2022/11/01 01:30:40 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void Span::addNumber( unsigned int n )
     if (__vector.size() >= __size){
         throw std::out_of_range("Span already on it's maximum size");
     }
-    // std::cout << "addNumber " << __vector.size() << '\n';
     __vector.push_back(n);
     if (n > __max){
         __max = n;
@@ -83,7 +82,7 @@ const std::vector<int>& Span::getVec( void ) const
         begin++;
     }
     __updated = true;
-    if (__size == __vector.size())
+    if (__size <= __vector.size())
         throw std::out_of_range("Span already on it's maximum size");
 }
 
@@ -105,6 +104,8 @@ unsigned int Span::shortestSpan( void )
     if (__firstTime == true){
         throw SpanNotFoundException();
     }
+    if (__vector.size() >= __size)
+        throw std::out_of_range("Span already on it's maximum size");
     __updated = false;
     return __shortestSpan;
 }
