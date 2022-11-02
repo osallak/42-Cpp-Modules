@@ -6,7 +6,7 @@
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:46:32 by osallak           #+#    #+#             */
-/*   Updated: 2022/10/30 21:32:07 by osallak          ###   ########.fr       */
+/*   Updated: 2022/11/02 17:12:24 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main( void )
 
         std::cout << "Element Found\n";
     }
-    catch (std::exception){
+    catch (std::exception&){
         std::cout << "Target Not Found\n";
     }
     
@@ -34,7 +34,7 @@ int main( void )
         it = easyfind(__vec, -1);
         std::cout << "Element Found\n";
     }
-    catch (std::exception){
+    catch (std::exception&){
         std::cout << "Target Not Found\n";
     }
 
@@ -45,7 +45,7 @@ int main( void )
         its = easyfind(__string, 'e');
         std::cout << "Element Found\n";
     }
-    catch (std::exception){
+    catch (std::exception&){
         std::cout << "Target Not Found\n";
     }
 }

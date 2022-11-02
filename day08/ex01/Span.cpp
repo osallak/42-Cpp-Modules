@@ -6,7 +6,7 @@
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:13:15 by osallak           #+#    #+#             */
-/*   Updated: 2022/11/01 01:30:40 by osallak          ###   ########.fr       */
+/*   Updated: 2022/11/02 17:13:53 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ unsigned int Span::longestSpan( void ) const
     return __max - __min;
 }
 
-const char *Span::SpanNotFoundException::what( void ) const _NOEXCEPT
+const char *Span::SpanNotFoundException::what( void ) const throw()
 {
     return "NO SPAN FOUND";
 }

@@ -6,7 +6,7 @@
 /*   By: osallak <osallak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 22:02:28 by osallak           #+#    #+#             */
-/*   Updated: 2022/10/28 04:17:44 by osallak          ###   ########.fr       */
+/*   Updated: 2022/11/02 17:13:37 by osallak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class Span{
         int getMax( void ) const;
         int getMin( void ) const;
         class SpanNotFoundException: public std::exception{
-            const char* what() const _NOEXCEPT;
+            const char* what() const throw();
         };
 };
 
