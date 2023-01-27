@@ -115,7 +115,7 @@ void Convert::__convert( void )
         if (!isdigit(_input[0])){
 			__data = static_cast<double>(_input[0]);
         } else {
-			__data = std::stod(_input);
+			__data = std::stod(_input);//this is not allowed
 		}
     } else{
 		if (isInf(_input, &__doublef)){
