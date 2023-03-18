@@ -22,14 +22,23 @@ int evaluateRpn(std::string const& expr)
             stack.pop();
             int b = stack.top();
             stack.pop();
-            if (expr[i] == '+')
+            switch (expr[i])
+            {
+            case '+':
                 stack.push(a + b);
-            else if (expr[i] == '-')
+                break;
+            case '-':
                 stack.push(b - a);
-            else if (expr[i] == '*')
+                break;
+            case '*':
                 stack.push(a * b);
-            else if (expr[i] == '/')
+                break;
+            case '/':
                 stack.push(b / a);
+                break;
+            default:
+                break;
+            }
         } else if (isdigit(expr[i])){
             stack.push(expr[i] - '0');
         } else {
