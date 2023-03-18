@@ -4,11 +4,12 @@
 # include <algorithm>
 
 
-bool isOperator(char c)
+static bool isOperator(char c) throw()
 {
     return (c == '+' || c == '-' || c == '*' || c == '/');
 }
-int evaluateRpn(std::string const& expr)
+
+static int evaluateRpn(std::string const& expr)
 {
     std::stack<int> stack;
 
@@ -24,20 +25,20 @@ int evaluateRpn(std::string const& expr)
             stack.pop();
             switch (expr[i])
             {
-            case '+':
-                stack.push(a + b);
-                break;
-            case '-':
-                stack.push(b - a);
-                break;
-            case '*':
-                stack.push(a * b);
-                break;
-            case '/':
-                stack.push(b / a);
-                break;
-            default:
-                break;
+                case '+':
+                    stack.push(a + b);
+                    break;
+                case '-':
+                    stack.push(b - a);
+                    break;
+                case '*':
+                    stack.push(a * b);
+                    break;
+                case '/':
+                    stack.push(b / a);
+                    break;
+                default:
+                    break;
             }
         } else if (isdigit(expr[i])){
             stack.push(expr[i] - '0');
@@ -49,7 +50,7 @@ int evaluateRpn(std::string const& expr)
         throw std::invalid_argument("Invalid rpn expression");
     return stack.top();
 }
-int main(int ac, char **av)
+int main(int ac, char **av) throw()
 {
     if (ac != 2)
     {
