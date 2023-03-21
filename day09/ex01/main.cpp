@@ -35,6 +35,8 @@ static int evaluateRpn(std::string const& expr)
                     stack.push(a * b);
                     break;
                 case '/':
+                    if (a == 0)
+                        throw std::invalid_argument("Math error");
                     stack.push(b / a);
                     break;
                 default:

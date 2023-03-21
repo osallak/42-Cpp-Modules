@@ -9,10 +9,10 @@ OBJS = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	c++ $(CPPFLAGS) $^ -o $(NAME)
+$(NAME) : $(OBJS) utils.hpp
+	c++ $(CPPFLAGS) $< -o $(NAME)
 
-%.o : %.cpp 
+%.o : %.cpp utils.hpp 
 	c++ $(CPPFLAGS) -c $< -o $@
 
 clean :

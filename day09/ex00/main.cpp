@@ -8,6 +8,8 @@
 # include <fstream>
 # include <sstream>
 # include <list>
+#include "utils.hpp"
+
 
 std::string parseDate(std::string line, int flag)//flag = 0 => ',' flag = 1 => '|'
 {
@@ -70,24 +72,24 @@ std::string parseDate(std::string line, int flag)//flag = 0 => ',' flag = 1 => '
 
 }
 
-double parseExchangeRate(std::string exRate, std::string date)
+double parseExchangeRate(std::string exRate)
 {
     //check if exchange rate is valid (double)
 
     for (size_t i = 0; i < exRate.size(); i++) {
         if (exRate[i] == '-' && i == 0){
             throw std::runtime_error("Error: not a positive number");
-        } if (!isdigit(exRate[i]) && exRate[i] != '.')
-            throw std::runtime_error("Error: bad input => " + date);
+        } if (!isdigit(exRate[i]) && exRate[i] != '.' && (exRate[i] != '+' || i != 0))
+            throw std::runtime_error("Error: bad input1 => " + exRate);
+        if (exRate[i] == '.' && exRate.find(".", i + 1) != std::string::npos)
+            throw std::runtime_error("Error: bad input2 => " + exRate);
     }
     double tmp;
     try {
         tmp = std::stod(exRate);
     } catch (std::exception &e) { 
-            throw std::runtime_error("Error: bad input => " + date);
+            throw std::runtime_error("Error: bad input3 => " + exRate);
     }
-    if (tmp > INT_MAX)
-        throw std::runtime_error( "Error: too large number");
     return tmp;
 }
 
@@ -114,7 +116,7 @@ std::map<std::string, double> parseDataBase( void )
         try {
             date = parseDate(line, false);
             line = line.substr(line.find(",") + 1);
-            dataBase[date] = parseExchangeRate(line, date); 
+            dataBase[date] = parseExchangeRate(line); 
             // std::cout << date << " " << dataBase[date] << std::endl;
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
@@ -124,15 +126,6 @@ std::map<std::string, double> parseDataBase( void )
     return dataBase;
 }
 
-//! move this to a separate header file
-struct PairCompare {
-    bool operator()(const std::pair<const std::string, double>& pair, const std::string& str) const {
-        return pair.first < str;
-    }
-    bool operator()(const std::string& str, const std::pair<const std::string, double>& pair) const {
-        return str < pair.first;
-    }
-};
 
 double getExchangeRate(std::string date, std::map<std::string, double> const& dataBase)
 {
@@ -141,10 +134,15 @@ double getExchangeRate(std::string date, std::map<std::string, double> const& da
     if (it == dataBase.end())
     {
         it = upper_bound(dataBase.begin(), dataBase.end(), date, PairCompare());
-        if (it == dataBase.end() || it != dataBase.begin()){
-            it--;
-            return it->second;
+        if (it == dataBase.end()){
+            return (0);
         } else if (it == dataBase.begin()){
+            if (it->first == date)
+                return it->second;
+            else
+                return (0);
+        }else {
+            it--;
             return it->second;
         } 
     }
@@ -159,25 +157,32 @@ void exchange(std::ifstream &inFile, std::map<std::string, double> dataBase)
     std::string line;
     size_t pos;
 
+    bool flag = false;
     while (std::getline(inFile, line))
     {
         if (line.empty()){
             std::cout << "Error: empty line in input file" << std::endl;
             continue;
-        } else if (line == "date | amount"){
+        } else if (line.find("date") != std::string::npos && flag == false){
             continue;
         } else if ((pos = line.find(",")) != std::string::npos){
             line.replace(pos, 1, ".");
-        } else if ((pos = line.find(".")) != std::string::npos){
-            if (line.find(".", pos + 1) != std::string::npos)
-                throw std::runtime_error("Error: bad input => " + line);
+        } else if ((pos = line.find(".")) != std::string::npos && line.find(".", pos + 1) != std::string::npos){
+            std::cout << "Error: bad input => " << line << std::endl;
+            continue;
         }
+        flag = true;
         line.erase(std::remove(line.begin(), line.end(), ' '), line.end());
         try {
             date = parseDate(line, true);
             line = line.substr(line.find("|") + 1);
-            amount = parseExchangeRate(line, date);
-            std::cout << date << " => " << amount << " = " << getExchangeRate(date, dataBase) * amount << std::endl;
+            amount = parseExchangeRate(line);
+            if (amount > 1000){
+                std::cout << "Error: too large number" << std::endl;
+                continue;
+            }
+            double exRate = getExchangeRate(date, dataBase);
+            std::cout << date << " => "<< std::fixed << std::setprecision(2) <<  amount << " = " << exRate * amount << std::endl;
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
             continue;
@@ -202,9 +207,9 @@ int main(int ac, char **av)
     std::map <std::string, double> dataBase;
     try {
         dataBase = parseDataBase();
+        exchange(file, dataBase);
     } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
         return 1;
     }
-    exchange(file, dataBase);
 }

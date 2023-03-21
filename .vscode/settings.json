@@ -67,6 +67,7 @@
         "__functional_03": "cpp",
         "stack": "cpp",
         "deque": "cpp",
-        "__cxx_version": "cpp"
+        "__cxx_version": "cpp",
+        "filesystem": "cpp"
     }
 }
